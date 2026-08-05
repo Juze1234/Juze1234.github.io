@@ -158,9 +158,7 @@ const content = {
     contactLabel: "Contact",
     contactHeadline: "Interested in practical technical design?",
     contactText: "Based in Tallinn, Estonia, and open to remote junior opportunities in technical design, gameplay scripting, and level design.",
-    cvPortfolio: "Portfolio CV · PDF",
-    cvAts: "ATS CV · PDF",
-    cvEditable: "Editable ATS CV · DOCX",
+    cvDownload: "Download CV · PDF",
     projectChannel: "Project channel",
     footerTitle: "Sergey Senchenko · Technical Design Portfolio",
     footerVersion: "Portfolio · 2026",
@@ -302,9 +300,7 @@ const content = {
     contactLabel: "Контакты",
     contactHeadline: "Ищете практического технического дизайнера?",
     contactText: "Живу в Таллинне и рассматриваю удалённые junior-позиции в техническом дизайне, программировании игровых механик и левел-дизайне.",
-    cvPortfolio: "Дизайнерское CV · PDF",
-    cvAts: "ATS-версия CV · PDF",
-    cvEditable: "Редактируемое CV · DOCX",
+    cvDownload: "Скачать CV · PDF",
     projectChannel: "Канал проекта",
     footerTitle: "Сергей Сенченко · Портфолио технического дизайнера",
     footerVersion: "Портфолио · 2026",
@@ -428,7 +424,7 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about"><div><p className="eyebrow">{t.aboutLabel}</p><h2>{t.aboutHeadline}</h2></div><div className="about-copy">{t.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
-      <section className="contact-section" id="contact"><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactHeadline}</h2><p>{t.contactText}</p><div className="contact-actions"><a href="mailto:SergeyJuze@gmail.com">SergeyJuze@gmail.com <span>↗</span></a><a href="/cv/Sergey_Senchenko_CV.pdf" download>{t.cvPortfolio} <span>↓</span></a><a href="/cv/Sergey_Senchenko_CV_ATS.pdf" download>{t.cvAts} <span>↓</span></a><a href="/cv/Sergey_Senchenko_CV.docx" download>{t.cvEditable} <span>↓</span></a><a href="https://github.com/Juze1234" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.youtube.com/@MetroWARrpOFF" target="_blank" rel="noreferrer">{t.projectChannel} <span>↗</span></a></div></section>
+      <section className="contact-section" id="contact"><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactHeadline}</h2><p>{t.contactText}</p><div className="contact-actions"><a href="mailto:SergeyJuze@gmail.com">SergeyJuze@gmail.com <span>↗</span></a><a href="/cv/Sergey_Senchenko_CV_ATS.pdf" download>{t.cvDownload} <span>↓</span></a><a href="https://github.com/Juze1234" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.youtube.com/@MetroWARrpOFF" target="_blank" rel="noreferrer">{t.projectChannel} <span>↗</span></a></div></section>
       <footer><span>{t.footerTitle}</span><span>{t.footerVersion}</span></footer>
     </main>
   );
