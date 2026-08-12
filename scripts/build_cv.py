@@ -290,7 +290,7 @@ def build_cv():
     summary.paragraph_format.line_spacing = 1.08
     run = summary.add_run(
         "Technical designer and gameplay scripter with seven years of development experience, the last two "
-        "spent leading a multiplayer survival and roleplay project end to end. Works across server-authoritative "
+        "spent leading a multiplayer DayZ project end to end. Works across Enforce Script, server-authoritative "
         "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
         "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
         "implementation, testing, and player-facing iteration."
@@ -304,12 +304,12 @@ def build_cv():
     set_run_font(run, size=10.5, color=INK, bold=True)
     meta = document.add_paragraph(style="CV Metadata")
     meta.paragraph_format.space_after = Pt(3)
-    run = meta.add_run("Independent multiplayer project on DayZ | 2024-Present | Two-person team")
+    run = meta.add_run("Independent DayZ project | 2024-Present | Two-person team")
     set_run_font(run, size=9.1, color=MUTED, italic=True)
 
     num_id = create_bullet_numbering(document)
     bullets = [
-        "Lead development across gameplay scripting, technical design, asset integration, game design, in-game economy, and QA; collaborate with a second developer who focuses on world and map production.",
+        "Lead development across gameplay scripting, technical design, model integration, game design, multiplayer economy, and QA; collaborate with a second developer who focuses on world and map production.",
         "Designed and implemented a data-driven character loadout system with real-time preview, persistent profile rules, and server-side eligibility validation.",
         "Built synchronized interactive world systems: power networks, switches, lighting circuits, control panels, powered doors, and the player feedback around them.",
         "Developed persistent player identity, in-game economy, access control, private storage, environmental hazards, and progression systems.",
@@ -334,7 +334,7 @@ def build_cv():
     add_section_heading(document, "Skills")
     add_skill_line(document, "Programming", "Gameplay scripting (Enforce Script); client-server architecture and RPC; data persistence; config-driven systems; debugging")
     add_skill_line(document, "Game development", "Technical design; gameplay systems; multiplayer design; game economy; level design; onboarding; hands-on QA")
-    add_skill_line(document, "Tools", "Blender; Substance Painter; Adobe Photoshop; DayZ Tools (Object Builder, Terrain Builder)")
+    add_skill_line(document, "Tools", "DayZ Tools; Object Builder; Terrain Builder; Blender; Substance Painter; Adobe Photoshop")
 
     add_section_heading(document, "Education")
     education = document.add_paragraph()

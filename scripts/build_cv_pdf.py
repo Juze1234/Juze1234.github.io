@@ -187,7 +187,7 @@ def build_pdf():
         Paragraph("PROFESSIONAL SUMMARY", section_style),
         Paragraph(
             "Technical designer and gameplay scripter with seven years of development experience, the last two "
-            "spent leading a multiplayer survival and roleplay project end to end. Works across server-authoritative "
+            "spent leading a multiplayer DayZ project end to end. Works across Enforce Script, server-authoritative "
             "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
             "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
             "implementation, testing, and player-facing iteration.",
@@ -195,11 +195,11 @@ def build_pdf():
         ),
         Paragraph("EXPERIENCE", section_style),
         Paragraph("Lead Developer / Technical Designer - Metro W.A.R. RP", role_heading_style),
-        Paragraph("Independent multiplayer project on DayZ | 2024-Present | Two-person team", metadata_style),
+        Paragraph("Independent DayZ project | 2024-Present | Two-person team", metadata_style),
     ]
 
     bullets = [
-        "Lead development across gameplay scripting, technical design, asset integration, game design, in-game economy, and QA; collaborate with a second developer who focuses on world and map production.",
+        "Lead development across gameplay scripting, technical design, model integration, game design, multiplayer economy, and QA; collaborate with a second developer who focuses on world and map production.",
         "Designed and implemented a data-driven character loadout system with real-time preview, persistent profile rules, and server-side eligibility validation.",
         "Built synchronized interactive world systems: power networks, switches, lighting circuits, control panels, powered doors, and the player feedback around them.",
         "Developed persistent player identity, in-game economy, access control, private storage, environmental hazards, and progression systems.",
@@ -234,7 +234,7 @@ def build_pdf():
             Paragraph("SKILLS", section_style),
             Paragraph("<b>Programming:</b> Gameplay scripting (Enforce Script); client-server architecture and RPC; data persistence; config-driven systems; debugging", skill_style),
             Paragraph("<b>Game development:</b> Technical design; gameplay systems; multiplayer design; game economy; level design; onboarding; hands-on QA", skill_style),
-            Paragraph("<b>Tools:</b> Blender; Substance Painter; Adobe Photoshop; DayZ Tools (Object Builder, Terrain Builder)", skill_style),
+            Paragraph("<b>Tools:</b> DayZ Tools; Object Builder; Terrain Builder; Blender; Substance Painter; Adobe Photoshop", skill_style),
             Paragraph("EDUCATION", section_style),
             Paragraph(
                 f"<b>{EDUCATION_INSTITUTION}</b> - {EDUCATION_PROGRAM}"

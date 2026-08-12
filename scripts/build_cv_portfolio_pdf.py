@@ -210,7 +210,6 @@ def build_pdf():
     sy -= 8
     sy = draw_sidebar_heading(c, "Core stack", sy)
     core_items = [
-        "Gameplay scripting",
         "Enforce Script",
         "Client-server RPC",
         "Persistent data",
@@ -228,7 +227,7 @@ def build_pdf():
 
     sy -= 7
     sy = draw_sidebar_heading(c, "Tools", sy)
-    tools = ["Blender", "Substance Painter", "Adobe Photoshop", "DayZ Tools", "Object Builder", "Terrain Builder"]
+    tools = ["DayZ Tools", "Object Builder", "Terrain Builder", "Blender", "Substance Painter", "Adobe Photoshop"]
     c.setFont("Segoe", 8.0)
     c.setFillColor(WHITE)
     for tool in tools:
@@ -270,7 +269,7 @@ def build_pdf():
     y = draw_main_heading(c, "Profile", y)
     y = draw_wrapped(
         c,
-        "Technical designer and gameplay scripter with seven years of development experience, focused on multiplayer systems, player-facing features, and level design. The last two spent leading a project end to end: server-authoritative logic, data-driven customization, progression and economy, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
+        "Technical designer and gameplay scripter with seven years of development experience, focused on multiplayer systems, player-facing features, and level design. The last two spent leading a DayZ project end to end: Enforce Script, server-authoritative logic, data-driven customization, progression and economy, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
         mx,
         y,
         mw,
@@ -300,10 +299,10 @@ def build_pdf():
     y -= 14
     c.setFont("Segoe", 8.2)
     c.setFillColor(MUTED)
-    c.drawString(mx, y, "Metro W.A.R. RP  |  Independent multiplayer project on DayZ  |  Two-person team")
+    c.drawString(mx, y, "Metro W.A.R. RP  |  Independent DayZ project  |  Two-person team")
     y -= 18
     experience = [
-        "Lead gameplay scripting, technical design, asset integration, in-game economy, and QA; collaborate with a second developer focused mainly on world and map production.",
+        "Lead gameplay scripting, technical design, model integration, server economy, and QA; collaborate with a second developer focused mainly on world and map production.",
         "Design reusable, data-driven gameplay systems spanning customization, identity, permissions, world state, and multiplayer feedback.",
         "Shape onboarding and exploration across underground and surface environments, connecting player flow, economy, traversal, hazards, and atmosphere.",
         "Reproduce issues across client-server flows, harden edge cases, and iterate systems through multiplayer playtests and player feedback.",
