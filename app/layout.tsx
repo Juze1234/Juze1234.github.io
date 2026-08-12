@@ -12,9 +12,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const siteUrl = "https://juze1234.github.io";
+
+// Per-language title, description, canonical and locale live in the route files.
 export const metadata: Metadata = {
-  title: "Sergey Senchenko — Technical Designer",
-  description: "Technical design, gameplay scripting, and level design portfolio featuring DayZ modding and Metro W.A.R. RP.",
+  metadataBase: new URL(siteUrl),
+  applicationName: "Sergey Senchenko — Technical Design Portfolio",
+  authors: [{ name: "Sergey Senchenko", url: siteUrl }],
+  creator: "Sergey Senchenko",
+  keywords: [
+    "technical designer",
+    "gameplay scripter",
+    "level designer",
+    "Enforce Script",
+    "DayZ modding",
+    "multiplayer systems",
+    "game design portfolio",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: "Sergey Senchenko — Technical Design Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
