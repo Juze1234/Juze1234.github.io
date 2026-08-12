@@ -153,8 +153,8 @@ const content = {
     aboutLabel: "About",
     aboutHeadline: "A practical route into game development.",
     about: [
-      "I am the lead developer of Metro W.A.R. RP. My work spans gameplay scripting, model integration, level design, game design, and multiplayer economy design. I develop the project as part of a two-person team; the other developer focuses primarily on world and map production. Over two years of development, we have built a community of more than 900 members, and our latest major playtest ran at the full 80-player server capacity.",
-      "I built this portfolio around concrete work rather than abstract concepts. In each case study, I clearly separate my contribution, the team context, the technical decisions, and the resulting player experience.",
+      "I am the lead developer of Metro W.A.R. RP. I write the gameplay systems, bring models into the engine, build the levels, handle game design, and design the server economy. There are two of us — the other developer mainly handles the world and the map. Over two years more than 900 people have gathered around the project, and at our last big test the server was full: all 80 players.",
+      "I built this portfolio out of things that already work in the game, not descriptions of ideas. Each case study shows what I did myself, where my part ends and my teammate's begins, the technical decisions behind it, and what the player ended up with.",
     ],
     contactLabel: "Contact",
     contactHeadline: "Interested in practical technical design?",
@@ -295,8 +295,8 @@ const content = {
     aboutLabel: "Обо мне",
     aboutHeadline: "Практический путь в игровую разработку.",
     about: [
-      "Я — главный разработчик Metro W.A.R. RP. Моя работа охватывает программирование игровых механик, интеграцию моделей, левел- и геймдизайн, а также проектирование экономики многопользовательского сервера. Я развиваю проект в команде из двух человек; второй разработчик в основном отвечает за мир и карту. За два года мы собрали сообщество из более чем 900 участников, а последний крупный тест прошёл при полном сервере на 80 игроков.",
-      "Я построил это портфолио вокруг конкретных результатов, а не абстрактных концепций. В каждом кейсе я отдельно показываю свой вклад, контекст команды, технические решения и итоговый игровой опыт.",
+      "Я главный разработчик Metro W.A.R. RP. Пишу игровые механики, переношу модели в движок, занимаюсь уровнями и геймдизайном, проектирую экономику сервера. Нас в команде двое — второй разработчик в основном отвечает за мир и карту. За два года вокруг проекта собралось больше 900 человек, а на последнем крупном тесте сервер был забит полностью, все 80 игроков.",
+      "Портфолио я собрал из того, что уже работает в игре, а не из описаний задумок. В каждом кейсе видно, что сделал лично я, где заканчивается моя часть и начинается работа напарника, какие технические решения за этим стоят и что в итоге получил игрок.",
     ],
     contactLabel: "Контакты",
     contactHeadline: "Ищете практического технического дизайнера?",
