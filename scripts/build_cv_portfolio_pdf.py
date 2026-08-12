@@ -137,20 +137,20 @@ def draw_system_row(c, number, title, description, x, y, width):
     c.setFont("SegoeSemi", 9.1)
     c.setFillColor(INK)
     c.drawString(x + 28, y - 8, title)
-    end_y = draw_wrapped(c, description, x + 28, y - 21, width - 28, font="Segoe", size=7.5, leading=9.2, color=MUTED)
-    return end_y - 4
+    end_y = draw_wrapped(c, description, x + 28, y - 20, width - 28, font="Segoe", size=7.5, leading=9.2, color=MUTED)
+    return end_y - 1
 
 
 def draw_method_card(c, number, title, description, x, y, width):
     c.setFillColor(PAPER_DARK)
-    c.roundRect(x, y, width, 56, 2, fill=1, stroke=0)
+    c.roundRect(x, y, width, 46, 2, fill=1, stroke=0)
     c.setFillColor(ACCENT)
     c.setFont("SegoeBold", 7.2)
-    c.drawString(x + 11, y + 39, number)
+    c.drawString(x + 11, y + 31, number)
     c.setFillColor(INK)
     c.setFont("SegoeSemi", 8.6)
-    c.drawString(x + 11, y + 25, title)
-    draw_wrapped(c, description, x + 11, y + 12, width - 22, font="Segoe", size=6.4, leading=7.6, color=MUTED, max_lines=2)
+    c.drawString(x + 11, y + 18, title)
+    draw_wrapped(c, description, x + 11, y + 7, width - 22, font="Segoe", size=6.4, leading=7.6, color=MUTED, max_lines=2)
 
 
 def add_link(c, text, url, x, y, font="SegoeSemi", size=8.2, color=WHITE):
@@ -269,7 +269,7 @@ def build_pdf():
     y = draw_main_heading(c, "Profile", y)
     y = draw_wrapped(
         c,
-        "Technical designer and gameplay scripter with seven years of development experience, focused on multiplayer systems, player-facing features, and level design. The last two spent leading a DayZ project end to end: Enforce Script, server-authoritative logic, data-driven customization, progression and economy, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
+        "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on DayZ. The last two spent leading a project end to end: Enforce Script, server-authoritative logic, data-driven customization, progression and economy, level design, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
         mx,
         y,
         mw,
@@ -310,6 +310,26 @@ def build_pdf():
     for item in experience:
         y = draw_bullet(c, item, mx, y, mw)
 
+    y -= 7
+    c.setFont("SegoeBold", 11)
+    c.setFillColor(INK)
+    c.drawString(mx, y, "Gameplay Scripter")
+    c.setFont("SegoeSemi", 8.2)
+    c.setFillColor(ACCENT)
+    c.drawRightString(PAGE_W - 28, y + 1, "2019 - 2024")
+    y -= 13
+    c.setFont("Segoe", 8.2)
+    c.setFillColor(MUTED)
+    c.drawString(mx, y, "S.T.A.L.K.E.R. RP  |  Independent DayZ project")
+    y -= 17
+    y = draw_bullet(
+        c,
+        "Owned the gameplay scripting for a persistent roleplay server: 300+ community members and a full 80-player server before the project was wound down.",
+        mx,
+        y,
+        mw,
+    )
+
     y -= 3
     y = draw_main_heading(c, "Core capabilities", y)
     system_rows = [
@@ -325,7 +345,7 @@ def build_pdf():
     y = draw_main_heading(c, "Delivery loop", y)
     method_gap = 7
     method_w = (mw - method_gap * 2) / 3
-    method_y = y - 55
+    method_y = y - 45
     methods = [
         ("01", "DESIGN", "Player goals, rules, flows"),
         ("02", "BUILD", "Server-authoritative systems"),

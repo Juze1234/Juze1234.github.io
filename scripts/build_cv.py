@@ -289,8 +289,8 @@ def build_cv():
     summary.paragraph_format.space_after = Pt(3)
     summary.paragraph_format.line_spacing = 1.08
     run = summary.add_run(
-        "Technical designer and gameplay scripter with seven years of development experience, the last two "
-        "spent leading a multiplayer DayZ project end to end. Works across Enforce Script, server-authoritative "
+        "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on "
+        "DayZ, the last two leading a project end to end. Works across Enforce Script, server-authoritative "
         "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
         "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
         "implementation, testing, and player-facing iteration."
@@ -330,6 +330,21 @@ def build_cv():
         "2 years in development | 900+ community members | Full 80-player server during the latest major test | Next closed beta in preparation"
     )
     set_run_font(value, size=8.8, color=INK, bold=True)
+
+    role = document.add_paragraph(style="Heading 2")
+    role.paragraph_format.space_before = Pt(6)
+    role.paragraph_format.space_after = Pt(0)
+    run = role.add_run("Gameplay Scripter - S.T.A.L.K.E.R. RP")
+    set_run_font(run, size=10.5, color=INK, bold=True)
+    meta = document.add_paragraph(style="CV Metadata")
+    meta.paragraph_format.space_after = Pt(3)
+    run = meta.add_run("Independent DayZ project | 2019-2024")
+    set_run_font(run, size=9.1, color=MUTED, italic=True)
+    for bullet in (
+        "Owned the gameplay scripting for a persistent roleplay server, implementing the project's custom mechanics in Enforce Script.",
+        "Reached 300+ community members and ran at the full 80-player server capacity before the project was wound down.",
+    ):
+        add_bullet(document, num_id, bullet)
 
     add_section_heading(document, "Skills")
     add_skill_line(document, "Programming", "Gameplay scripting (Enforce Script); client-server architecture and RPC; data persistence; config-driven systems; debugging")

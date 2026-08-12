@@ -186,8 +186,8 @@ def build_pdf():
         HRFlowable(width="100%", thickness=1.2, color=ACCENT, spaceBefore=0, spaceAfter=4),
         Paragraph("PROFESSIONAL SUMMARY", section_style),
         Paragraph(
-            "Technical designer and gameplay scripter with seven years of development experience, the last two "
-            "spent leading a multiplayer DayZ project end to end. Works across Enforce Script, server-authoritative "
+            "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on "
+            "DayZ, the last two leading a project end to end. Works across Enforce Script, server-authoritative "
             "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
             "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
             "implementation, testing, and player-facing iteration.",
@@ -207,9 +207,9 @@ def build_pdf():
         "Contributed level design across underground and surface environments, shaping onboarding, exploration routes, economy touchpoints, atmosphere, and encounter flow.",
         "Own QA alongside development: reproduce issues, trace client-server failures, validate configuration edge cases, and iterate through multiplayer playtests and player feedback.",
     ]
-    story.append(
-        ListFlowable(
-            [ListItem(Paragraph(item, bullet_style), leftIndent=0) for item in bullets],
+    def bullet_list(items):
+        return ListFlowable(
+            [ListItem(Paragraph(item, bullet_style), leftIndent=0) for item in items],
             bulletType="bullet",
             start="circle",
             leftIndent=13.5,
@@ -220,7 +220,8 @@ def build_pdf():
             spaceBefore=0,
             spaceAfter=1,
         )
-    )
+
+    story.append(bullet_list(bullets))
     story.append(
         Paragraph(
             '<font color="#9D1C1C"><b>PROJECT IMPACT</b></font>  '
@@ -229,6 +230,19 @@ def build_pdf():
             impact_style,
         )
     )
+
+    story.append(Spacer(1, 7))
+    story.append(Paragraph("Gameplay Scripter - S.T.A.L.K.E.R. RP", role_heading_style))
+    story.append(Paragraph("Independent DayZ project | 2019-2024", metadata_style))
+    story.append(
+        bullet_list(
+            [
+                "Owned the gameplay scripting for a persistent roleplay server, implementing the project's custom mechanics in Enforce Script.",
+                "Reached 300+ community members and ran at the full 80-player server capacity before the project was wound down.",
+            ]
+        )
+    )
+
     story.extend(
         [
             Paragraph("SKILLS", section_style),
