@@ -186,26 +186,26 @@ def build_pdf():
         HRFlowable(width="100%", thickness=1.2, color=ACCENT, spaceBefore=0, spaceAfter=4),
         Paragraph("PROFESSIONAL SUMMARY", section_style),
         Paragraph(
-            "Technical designer and gameplay scripter with two years of hands-on experience leading development "
-            "of a multiplayer DayZ project. Experience includes Enforce Script, server-authoritative gameplay systems, "
-            "data-driven player customization, persistent identity and progression, level design, asset integration, "
-            "and end-to-end QA. Comfortable owning features from concept through implementation, testing, and "
-            "player-facing iteration.",
+            "Technical designer and gameplay scripter with seven years of development experience, the last two "
+            "spent leading a multiplayer survival and roleplay project end to end. Works across server-authoritative "
+            "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
+            "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
+            "implementation, testing, and player-facing iteration.",
             body_style,
         ),
         Paragraph("EXPERIENCE", section_style),
         Paragraph("Lead Developer / Technical Designer - Metro W.A.R. RP", role_heading_style),
-        Paragraph("Independent DayZ project | 2024-Present | Two-person team", metadata_style),
+        Paragraph("Independent multiplayer project on DayZ | 2024-Present | Two-person team", metadata_style),
     ]
 
     bullets = [
-        "Lead development across gameplay scripting, technical design, model integration, game design, multiplayer economy, and QA; collaborate with a second developer focused primarily on world and map production.",
-        "Designed and implemented a config-driven player customization and loadout workflow with real-time preview, persistent profile rules, and server-side eligibility validation.",
-        "Built synchronized interactive world systems covering power state, switches, lighting, control panels, player feedback, and gated interactions.",
-        "Developed persistent player identity, economy, access control, private storage, environmental hazards, and progression-supporting systems.",
-        "Extended HypeTrain Core for multiplayer node-based traversal through model integration, simulation tuning, custom rail paths, and automatic alignment.",
+        "Lead development across gameplay scripting, technical design, asset integration, game design, in-game economy, and QA; collaborate with a second developer who focuses on world and map production.",
+        "Designed and implemented a data-driven character loadout system with real-time preview, persistent profile rules, and server-side eligibility validation.",
+        "Built synchronized interactive world systems: power networks, switches, lighting circuits, control panels, powered doors, and the player feedback around them.",
+        "Developed persistent player identity, in-game economy, access control, private storage, environmental hazards, and progression systems.",
+        "Built a rideable rail vehicle for multiplayer, covering physics tuning, multi-passenger support, custom track layouts, and automatic alignment to valid track nodes.",
         "Contributed level design across underground and surface environments, shaping onboarding, exploration routes, economy touchpoints, atmosphere, and encounter flow.",
-        "Own hands-on QA alongside development: reproduce issues, trace client-server failures, validate configuration edge cases, and iterate systems through multiplayer testing and player feedback.",
+        "Own QA alongside development: reproduce issues, trace client-server failures, validate configuration edge cases, and iterate through multiplayer playtests and player feedback.",
     ]
     story.append(
         ListFlowable(
@@ -225,16 +225,16 @@ def build_pdf():
         Paragraph(
             '<font color="#9D1C1C"><b>PROJECT IMPACT</b></font>  '
             "2 years in development | 900+ community members | Full 80-player server during the latest major test | "
-            "Next closed beta in preparation",
+            "Closed beta in preparation",
             impact_style,
         )
     )
     story.extend(
         [
             Paragraph("SKILLS", section_style),
-            Paragraph("<b>Programming:</b> Enforce Script; client-server RPC; data persistence; config-driven systems; debugging", skill_style),
+            Paragraph("<b>Programming:</b> Gameplay scripting (Enforce Script); client-server architecture and RPC; data persistence; config-driven systems; debugging", skill_style),
             Paragraph("<b>Game development:</b> Technical design; gameplay systems; multiplayer design; game economy; level design; onboarding; hands-on QA", skill_style),
-            Paragraph("<b>Tools:</b> DayZ Tools; Object Builder; Terrain Builder; Blender; Substance Painter; Adobe Photoshop", skill_style),
+            Paragraph("<b>Tools:</b> Blender; Substance Painter; Adobe Photoshop; DayZ Tools (Object Builder, Terrain Builder)", skill_style),
             Paragraph("EDUCATION", section_style),
             Paragraph(
                 f"<b>{EDUCATION_INSTITUTION}</b> - {EDUCATION_PROGRAM}"
