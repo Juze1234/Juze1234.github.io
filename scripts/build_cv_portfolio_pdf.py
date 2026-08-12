@@ -269,7 +269,7 @@ def build_pdf():
     y = draw_main_heading(c, "Profile", y)
     y = draw_wrapped(
         c,
-        "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on DayZ. The last two spent leading a project end to end: Enforce Script, server-authoritative logic, data-driven customization, progression and economy, level design, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
+        "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on DayZ. The last two spent leading a project end to end: Enforce Script, server-authoritative logic, data-driven customization, progression and economy systems, level design, asset integration, and QA. Comfortable taking a feature from concept through implementation, testing, and iteration.",
         mx,
         y,
         mw,
@@ -302,7 +302,7 @@ def build_pdf():
     c.drawString(mx, y, "Metro W.A.R. RP  |  Independent DayZ project  |  Two-person team")
     y -= 18
     experience = [
-        "Lead gameplay scripting, technical design, model integration, server economy, and QA; collaborate with a second developer focused mainly on world and map production.",
+        "Lead gameplay scripting, technical design, model integration, economy systems, and QA; collaborate with a second developer focused mainly on world, map production, and economy balance.",
         "Design reusable, data-driven gameplay systems spanning customization, identity, permissions, survival pressure such as radiation and sanity, and multiplayer feedback.",
         "Built radio voice comms over the engine's proximity VOIP: a server-side router recomputes who can hear whom each tick from position, tuned frequency and radio state.",
         "Shape onboarding and exploration across underground and surface environments, connecting player flow, economy, traversal, hazards, and atmosphere.",

@@ -291,7 +291,7 @@ def build_cv():
     run = summary.add_run(
         "Technical designer and gameplay scripter with seven years building multiplayer gameplay systems on "
         "DayZ, the last two leading a project end to end. Works across Enforce Script, server-authoritative "
-        "gameplay systems, data-driven player customization, persistent identity, progression and economy, "
+        "gameplay systems, data-driven player customization, persistent identity, progression and economy systems, "
         "level design, asset integration, and hands-on QA. Comfortable owning a feature from concept through "
         "implementation, testing, and player-facing iteration."
     )
@@ -309,10 +309,10 @@ def build_cv():
 
     num_id = create_bullet_numbering(document)
     bullets = [
-        "Lead development across gameplay scripting, technical design, model integration, game design, multiplayer economy, and QA; collaborate with a second developer who focuses on world and map production.",
+        "Lead development across gameplay scripting, technical design, model integration, game design, economy systems, and QA; collaborate with a second developer who focuses on world, map production, and economy balance.",
         "Designed and implemented a data-driven character loadout system with real-time preview, persistent profile rules, and server-side eligibility validation.",
         "Built synchronized interactive world systems: power networks, switches, lighting circuits, control panels, powered doors, and the player feedback around them.",
-        "Developed persistent player identity, in-game economy, access control, private storage, roleplay character cards, and progression systems.",
+        "Developed persistent player identity, trading and economy systems, access control, private storage, roleplay character cards, and progression systems.",
         "Built a radiation layer: server-side contaminated zones with safe-zone overrides, consumable gas-mask filters, and staged unconsciousness and death that reverses once the player is protected. Repurposed the in-game wristwatch into a filter countdown with audible warnings.",
         "Built a sanity system: psychic pressure scaled by distance, view angle and line of sight, resistance earned through kills, and escalating loss of control as sanity falls. Client state syncs only past a change threshold to keep bandwidth down.",
         "Implemented radio voice comms on top of the engine's proximity VOIP: a server-side router recomputes a per-pair mute matrix each tick from position, voice level, tuned frequency and radio state, so players hear each other directly, over a matching channel, or through someone else's radio left on speaker. Supports dual-channel monitoring and radios carried in a backpack.",
