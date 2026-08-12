@@ -13,6 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "public" / "cv"
 OUTPUT_PATH = OUTPUT_DIR / "Sergey_Senchenko_CV.docx"
 
+EDUCATION_INSTITUTION = "Tallinn Polytechnic School (Tallinna Polütehnikum)"
+EDUCATION_PROGRAM = "IT Specialist"
+EDUCATION_YEARS = ""  # set to e.g. "2018-2021" to show years
+
 FONT = "Calibri"
 INK = RGBColor(28, 31, 32)
 MUTED = RGBColor(94, 101, 101)
@@ -250,7 +254,7 @@ def build_cv():
 
     properties = document.core_properties
     properties.title = "Sergey Senchenko - Technical Designer CV"
-    properties.subject = "Junior Technical Designer, Gameplay Scripter, and Level Designer"
+    properties.subject = "Technical Designer, Gameplay Scripter, and Level Designer"
     properties.author = "Sergey Senchenko"
     properties.keywords = "Technical Design, Gameplay Scripting, Enforce Script, DayZ, Level Design, QA"
 
@@ -264,16 +268,20 @@ def build_cv():
     title = document.add_paragraph()
     title.paragraph_format.space_before = Pt(0)
     title.paragraph_format.space_after = Pt(4)
-    run = title.add_run("Junior Technical Designer | Gameplay Scripter | Level Designer")
+    run = title.add_run("Technical Designer | Gameplay Scripter | Level Designer")
     set_run_font(run, size=11.5, color=ACCENT, bold=True)
 
     contact = document.add_paragraph(style="CV Metadata")
     contact.add_run("Tallinn, Estonia | Open to remote opportunities | ")
     add_hyperlink(contact, "SergeyJuze@gmail.com", "mailto:SergeyJuze@gmail.com")
-    contact.add_run(" | ")
+    contact.add_run("\nPortfolio: ")
+    add_hyperlink(contact, "juze1234.github.io", "https://juze1234.github.io/")
+    contact.add_run(" | LinkedIn: ")
+    add_hyperlink(contact, "linkedin.com/in/sergey-senchenko-951aa837b", "https://www.linkedin.com/in/sergey-senchenko-951aa837b/")
+    contact.add_run(" | GitHub: ")
     add_hyperlink(contact, "github.com/Juze1234", "https://github.com/Juze1234")
-    contact.add_run(" | ")
-    add_hyperlink(contact, "Project videos", "https://www.youtube.com/@MetroWARrpOFF")
+    contact.add_run(" | Project videos: ")
+    add_hyperlink(contact, "youtube.com/@MetroWARrpOFF", "https://www.youtube.com/@MetroWARrpOFF")
     set_paragraph_border_bottom(contact, color="9D1C1C", size=8, space=7)
 
     add_section_heading(document, "Professional Summary")
@@ -281,7 +289,7 @@ def build_cv():
     summary.paragraph_format.space_after = Pt(3)
     summary.paragraph_format.line_spacing = 1.08
     run = summary.add_run(
-        "Junior technical designer and gameplay scripter with two years of hands-on experience leading development "
+        "Technical designer and gameplay scripter with two years of hands-on experience leading development "
         "of a multiplayer DayZ project. Experience includes Enforce Script, server-authoritative gameplay systems, "
         "data-driven player customization, persistent identity and progression, level design, asset integration, "
         "and end-to-end QA. Comfortable owning features from concept through implementation, testing, and "
@@ -327,6 +335,15 @@ def build_cv():
     add_skill_line(document, "Programming", "Enforce Script; client-server RPC; data persistence; config-driven systems; debugging")
     add_skill_line(document, "Game development", "Technical design; gameplay systems; multiplayer design; game economy; level design; onboarding; hands-on QA")
     add_skill_line(document, "Tools", "DayZ Tools; Object Builder; Terrain Builder; Blender; Substance Painter; Adobe Photoshop")
+
+    add_section_heading(document, "Education")
+    education = document.add_paragraph()
+    education.paragraph_format.space_after = Pt(0)
+    run = education.add_run(
+        f"{EDUCATION_INSTITUTION} - {EDUCATION_PROGRAM}"
+        + (f" | {EDUCATION_YEARS}" if EDUCATION_YEARS else "")
+    )
+    set_run_font(run, size=9.2, color=INK)
 
     add_section_heading(document, "Languages")
     languages = document.add_paragraph()

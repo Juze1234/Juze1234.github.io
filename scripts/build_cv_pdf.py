@@ -22,6 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "public" / "cv"
 OUTPUT_PATH = OUTPUT_DIR / "Sergey_Senchenko_CV_ATS.pdf"
 
+EDUCATION_INSTITUTION = "Tallinn Polytechnic School (Tallinna Polütehnikum)"
+EDUCATION_PROGRAM = "IT Specialist"
+EDUCATION_YEARS = ""  # set to e.g. "2018-2021" to show years
+
 INK = colors.HexColor("#1C1F20")
 MUTED = colors.HexColor("#5E6565")
 ACCENT = colors.HexColor("#9D1C1C")
@@ -67,7 +71,7 @@ def build_pdf():
         bottomMargin=0.66 * inch,
         title="Sergey Senchenko - Technical Designer CV",
         author="Sergey Senchenko",
-        subject="Junior Technical Designer, Gameplay Scripter, and Level Designer",
+        subject="Technical Designer, Gameplay Scripter, and Level Designer",
     )
 
     styles = getSampleStyleSheet()
@@ -169,18 +173,20 @@ def build_pdf():
 
     story = [
         Paragraph("SERGEY SENCHENKO", name_style),
-        Paragraph("Junior Technical Designer | Gameplay Scripter | Level Designer", role_style),
+        Paragraph("Technical Designer | Gameplay Scripter | Level Designer", role_style),
         Paragraph(
             'Tallinn, Estonia | Open to remote opportunities | '
-            '<link href="mailto:SergeyJuze@gmail.com" color="#6B1D1D">SergeyJuze@gmail.com</link> | '
-            '<link href="https://github.com/Juze1234" color="#6B1D1D">github.com/Juze1234</link> | '
-            '<link href="https://www.youtube.com/@MetroWARrpOFF" color="#6B1D1D">Project videos</link>',
+            '<link href="mailto:SergeyJuze@gmail.com" color="#6B1D1D">SergeyJuze@gmail.com</link><br/>'
+            'Portfolio: <link href="https://juze1234.github.io/" color="#6B1D1D">juze1234.github.io</link> | '
+            'LinkedIn: <link href="https://www.linkedin.com/in/sergey-senchenko-951aa837b/" color="#6B1D1D">linkedin.com/in/sergey-senchenko-951aa837b</link> | '
+            'GitHub: <link href="https://github.com/Juze1234" color="#6B1D1D">github.com/Juze1234</link> | '
+            'Project videos: <link href="https://www.youtube.com/@MetroWARrpOFF" color="#6B1D1D">youtube.com/@MetroWARrpOFF</link>',
             contact_style,
         ),
         HRFlowable(width="100%", thickness=1.2, color=ACCENT, spaceBefore=0, spaceAfter=4),
         Paragraph("PROFESSIONAL SUMMARY", section_style),
         Paragraph(
-            "Junior technical designer and gameplay scripter with two years of hands-on experience leading development "
+            "Technical designer and gameplay scripter with two years of hands-on experience leading development "
             "of a multiplayer DayZ project. Experience includes Enforce Script, server-authoritative gameplay systems, "
             "data-driven player customization, persistent identity and progression, level design, asset integration, "
             "and end-to-end QA. Comfortable owning features from concept through implementation, testing, and "
@@ -229,6 +235,12 @@ def build_pdf():
             Paragraph("<b>Programming:</b> Enforce Script; client-server RPC; data persistence; config-driven systems; debugging", skill_style),
             Paragraph("<b>Game development:</b> Technical design; gameplay systems; multiplayer design; game economy; level design; onboarding; hands-on QA", skill_style),
             Paragraph("<b>Tools:</b> DayZ Tools; Object Builder; Terrain Builder; Blender; Substance Painter; Adobe Photoshop", skill_style),
+            Paragraph("EDUCATION", section_style),
+            Paragraph(
+                f"<b>{EDUCATION_INSTITUTION}</b> - {EDUCATION_PROGRAM}"
+                + (f" | {EDUCATION_YEARS}" if EDUCATION_YEARS else ""),
+                body_style,
+            ),
             Paragraph("LANGUAGES", section_style),
             Paragraph("Russian - Native | English - Professional working proficiency | Estonian - Basic", body_style),
         ]

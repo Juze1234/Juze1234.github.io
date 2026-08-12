@@ -14,6 +14,10 @@ OUTPUT_PATH = OUTPUT_DIR / "Sergey_Senchenko_CV.pdf"
 PAGE_W, PAGE_H = letter
 SIDEBAR_W = 168
 
+EDUCATION_INSTITUTION = "Tallinn Polytechnic School"
+EDUCATION_PROGRAM = "IT Specialist"
+EDUCATION_YEARS = ""  # set to e.g. "2018-2021" to show years
+
 PAPER = colors.HexColor("#F3F1EC")
 PAPER_DARK = colors.HexColor("#E6E2DA")
 INK = colors.HexColor("#141819")
@@ -189,22 +193,21 @@ def build_pdf():
     sy = PAGE_H - 151
     sy = draw_sidebar_heading(c, "Contact", sy)
     sy = draw_sidebar_pair(c, "Location", "Tallinn, Estonia", sy)
-    c.setFont("Segoe", 6.5)
-    c.setFillColor(SIDEBAR_SOFT)
-    c.drawString(23, sy, "EMAIL")
-    add_link(c, "SergeyJuze@gmail.com", "mailto:SergeyJuze@gmail.com", 23, sy - 12)
-    sy -= 30
-    c.setFont("Segoe", 6.5)
-    c.setFillColor(SIDEBAR_SOFT)
-    c.drawString(23, sy, "PORTFOLIO")
-    add_link(c, "github.com/Juze1234", "https://github.com/Juze1234", 23, sy - 12)
-    sy -= 30
-    c.setFont("Segoe", 6.5)
-    c.setFillColor(SIDEBAR_SOFT)
-    c.drawString(23, sy, "PROJECT FOOTAGE")
-    add_link(c, "Metro W.A.R. channel", "https://www.youtube.com/@MetroWARrpOFF", 23, sy - 12)
+    contact_links = [
+        ("EMAIL", "SergeyJuze@gmail.com", "mailto:SergeyJuze@gmail.com"),
+        ("PORTFOLIO", "juze1234.github.io", "https://juze1234.github.io/"),
+        ("LINKEDIN", "LinkedIn profile", "https://www.linkedin.com/in/sergey-senchenko-951aa837b/"),
+        ("GITHUB", "github.com/Juze1234", "https://github.com/Juze1234"),
+        ("PROJECT FOOTAGE", "Metro W.A.R. channel", "https://www.youtube.com/@MetroWARrpOFF"),
+    ]
+    for label, text, url in contact_links:
+        c.setFont("Segoe", 6.5)
+        c.setFillColor(SIDEBAR_SOFT)
+        c.drawString(23, sy, label)
+        add_link(c, text, url, 23, sy - 12)
+        sy -= 26
 
-    sy -= 48
+    sy -= 8
     sy = draw_sidebar_heading(c, "Core stack", sy)
     core_items = [
         "Enforce Script",
@@ -220,27 +223,27 @@ def build_pdf():
         c.rect(23, sy - 2, 3, 3, fill=1, stroke=0)
         c.setFillColor(WHITE)
         c.drawString(34, sy, item)
-        sy -= 17
+        sy -= 16
 
-    sy -= 10
+    sy -= 7
     sy = draw_sidebar_heading(c, "Tools", sy)
     tools = ["DayZ Tools", "Object Builder", "Terrain Builder", "Blender", "Substance Painter", "Adobe Photoshop"]
     c.setFont("Segoe", 8.0)
     c.setFillColor(WHITE)
     for tool in tools:
         c.drawString(23, sy, tool)
-        sy -= 16
+        sy -= 15
 
-    sy -= 11
+    sy -= 8
     sy = draw_sidebar_heading(c, "Languages", sy)
     sy = draw_sidebar_pair(c, "Russian", "Native", sy)
     sy = draw_sidebar_pair(c, "English", "Professional", sy)
     sy = draw_sidebar_pair(c, "Estonian", "Basic", sy)
 
     c.setFillColor(colors.HexColor("#252A2A"))
-    c.rect(23, 35, SIDEBAR_W - 45, 43, fill=1, stroke=0)
-    draw_tracking(c, "SOURCE POLICY", 33, 62, font="SegoeBold", size=5.9, color=ACCENT, char_space=1.0)
-    draw_wrapped(c, "Full source stays private. Technical walkthrough available during recruitment.", 33, 50, SIDEBAR_W - 65, font="Segoe", size=6.5, leading=8.2, color=SIDEBAR_SOFT)
+    c.rect(23, 33, SIDEBAR_W - 45, 52, fill=1, stroke=0)
+    draw_tracking(c, "SOURCE POLICY", 33, 70, font="SegoeBold", size=5.9, color=ACCENT, char_space=1.0)
+    draw_wrapped(c, "Full source stays private. Technical walkthrough available during recruitment.", 33, 58, SIDEBAR_W - 65, font="Segoe", size=6.5, leading=8.2, color=SIDEBAR_SOFT)
 
     # Main masthead.
     mx = SIDEBAR_W + 27
@@ -266,7 +269,7 @@ def build_pdf():
     y = draw_main_heading(c, "Profile", y)
     y = draw_wrapped(
         c,
-        "Junior technical designer and gameplay scripter focused on multiplayer systems, player-facing features, and level design. Two years of hands-on ownership across Enforce Script, server-authoritative logic, data-driven customization, progression and economy, asset integration, and QA. Comfortable taking features from concept through implementation, testing, and iteration.",
+        "Technical designer and gameplay scripter focused on multiplayer systems, player-facing features, and level design. Two years of hands-on ownership across Enforce Script, server-authoritative logic, data-driven customization, progression and economy, asset integration, and QA. Comfortable taking features from concept through implementation, testing, and iteration.",
         mx,
         y,
         mw,
@@ -330,13 +333,26 @@ def build_pdf():
     ]
     for index, method in enumerate(methods):
         draw_method_card(c, method[0], method[1], method[2], mx + index * (method_w + method_gap), method_y, method_w)
+    y = method_y - 22
+
+    y = draw_main_heading(c, "Education", y)
+    c.setFont("SegoeBold", 9.6)
+    c.setFillColor(INK)
+    c.drawString(mx, y, EDUCATION_INSTITUTION)
+    if EDUCATION_YEARS:
+        c.setFont("SegoeSemi", 8.2)
+        c.setFillColor(ACCENT)
+        c.drawRightString(PAGE_W - 28, y + 1, EDUCATION_YEARS)
+    c.setFont("Segoe", 8.2)
+    c.setFillColor(MUTED)
+    c.drawString(mx, y - 13, EDUCATION_PROGRAM)
 
     c.setStrokeColor(LINE)
     c.setLineWidth(0.6)
     c.line(mx, 39, PAGE_W - 28, 39)
     c.setFont("Segoe", 6.8)
     c.setFillColor(MUTED)
-    c.drawString(mx, 27, "Junior technical design / gameplay scripting / level design")
+    c.drawString(mx, 27, "Technical design / gameplay scripting / level design")
     c.setFont("SegoeSemi", 6.8)
     c.setFillColor(ACCENT)
     c.drawRightString(PAGE_W - 28, 27, "TALLINN / REMOTE")
