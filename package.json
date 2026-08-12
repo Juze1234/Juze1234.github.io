@@ -10,7 +10,7 @@
     "build": "next build",
     "build:pages": "next build",
     "start": "next start",
-    "lint": "eslint . --ignore-pattern .next --ignore-pattern dist --ignore-pattern out --ignore-pattern .vinext"
+    "lint": "eslint . --ignore-pattern .next --ignore-pattern dist --ignore-pattern out --ignore-pattern .vinext --ignore-pattern _next"
   },
   "dependencies": {
     "next": "^16.3.0",

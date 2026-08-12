@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect } from "react";
 
 type Language = "en" | "ru";
 
 const sharedProjects = [
   { number: "01", image: "/projects/metro-war/teaser.jpg", href: "#metro-war", featured: true },
   { number: "02", image: "/projects/metro-war/passport.jpg", href: "https://www.youtube.com/watch?v=FRJ88T8c6gM", featured: false },
-  { number: "03", image: "/projects/metro-war/network-map.png", href: "#metro-war", featured: false },
+  { number: "03", image: "/projects/metro-war/network-map.jpg", href: "#metro-war", featured: false },
 ];
 
 const sharedVideos = [
@@ -157,7 +158,7 @@ const content = {
     ],
     contactLabel: "Contact",
     contactHeadline: "Interested in practical technical design?",
-    contactText: "Based in Tallinn, Estonia, and open to remote junior opportunities in technical design, gameplay scripting, and level design.",
+    contactText: "Based in Tallinn, Estonia, and open to remote opportunities in technical design, gameplay scripting, and level design.",
     cvDownload: "Download CV · PDF",
     projectChannel: "Project channel",
     footerTitle: "Sergey Senchenko · Technical Design Portfolio",
@@ -299,7 +300,7 @@ const content = {
     ],
     contactLabel: "Контакты",
     contactHeadline: "Ищете практического технического дизайнера?",
-    contactText: "Живу в Таллинне и рассматриваю удалённые junior-позиции в техническом дизайне, программировании игровых механик и левел-дизайне.",
+    contactText: "Живу в Таллинне и рассматриваю удалённую работу в техническом дизайне, программировании игровых механик и левел-дизайне.",
     cvDownload: "Скачать CV · PDF",
     projectChannel: "Канал проекта",
     footerTitle: "Сергей Сенченко · Портфолио технического дизайнера",
@@ -309,29 +310,19 @@ const content = {
 
 const galleryImages = [
   "/projects/metro-war/vdnkh/platform.jpg",
-  "/projects/metro-war/vdnkh/loadout-selection.png",
+  "/projects/metro-war/vdnkh/loadout-selection.jpg",
   "/projects/metro-war/vdnkh/generator-room.jpg",
   "/projects/metro-war/vdnkh/trader-area.jpg",
 ];
 
-export default function Home() {
-  const [language, setLanguage] = useState<Language>("en");
+export default function PortfolioPage({ language }: { language: Language }) {
   const t = content[language];
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("portfolio-language");
-    if (saved !== "en" && saved !== "ru") return;
-    const frame = window.requestAnimationFrame(() => setLanguage(saved));
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
-
+  // Each language is its own route, so the URL is the source of truth. The root
+  // layout ships lang="en"; correct it here for the Russian route.
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = t.pageTitle;
-    window.localStorage.setItem("portfolio-language", language);
-  }, [language, t.pageTitle]);
-
-  const changeLanguage = (next: Language) => setLanguage(next);
+  }, [language]);
 
   return (
     <main className={`lang-${language}`}>
@@ -345,8 +336,8 @@ export default function Home() {
             <a href="#work">{t.nav[0]}</a><a href="#capabilities">{t.nav[1]}</a><a href="#about">{t.nav[2]}</a><a className="nav-contact" href="#contact">{t.nav[3]}</a>
           </nav>
           <div className="language-switch" role="group" aria-label={t.languageLabel}>
-            <button type="button" className={language === "en" ? "active" : ""} aria-pressed={language === "en"} onClick={() => changeLanguage("en")}>ENG</button>
-            <button type="button" className={language === "ru" ? "active" : ""} aria-pressed={language === "ru"} onClick={() => changeLanguage("ru")}>RU</button>
+            <Link href="/" className={language === "en" ? "active" : ""} aria-current={language === "en" ? "page" : undefined} hrefLang="en">ENG</Link>
+            <Link href="/ru/" className={language === "ru" ? "active" : ""} aria-current={language === "ru" ? "page" : undefined} hrefLang="ru">RU</Link>
           </div>
         </div>
       </header>
@@ -380,7 +371,7 @@ export default function Home() {
           <div className="contribution-grid"><div><p className="eyebrow">{t.contributionLabel}</p><h3>{t.contributionHeadline}</h3></div><ul>{t.contributions.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ul></div>
 
           <div className="level-spotlight">
-            <div className="level-map"><img src="/projects/metro-war/network-map.png" alt={t.mapAlt} loading="lazy" /><span>{t.mapCaption}</span></div>
+            <div className="level-map"><img src="/projects/metro-war/network-map.jpg" alt={t.mapAlt} loading="lazy" /><span>{t.mapCaption}</span></div>
             <div className="level-copy"><p className="eyebrow">{t.levelLabel}</p><h3>{t.levelHeadline}</h3><p>{t.levelIntro}</p><dl>{t.levelFacts.map(([term, detail]) => <div key={term}><dt>{term}</dt><dd>{detail}</dd></div>)}</dl></div>
             <div className="level-gallery" aria-label={t.galleryLabel}>{t.gallery.map(([alt, caption], index) => <figure key={caption}><img src={galleryImages[index]} alt={alt} loading="lazy" /><figcaption>{caption}</figcaption></figure>)}</div>
             <div className="loadout-case"><div><p className="eyebrow">{t.loadoutLabel}</p><h4>{t.loadoutHeadline}</h4></div><div className="loadout-facts">{t.loadoutFacts.map(([label, detail]) => <p key={label}><span>{label}</span>{detail}</p>)}</div></div>
@@ -424,7 +415,7 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about"><div><p className="eyebrow">{t.aboutLabel}</p><h2>{t.aboutHeadline}</h2></div><div className="about-copy">{t.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
-      <section className="contact-section" id="contact"><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactHeadline}</h2><p>{t.contactText}</p><div className="contact-actions"><a href="mailto:SergeyJuze@gmail.com">SergeyJuze@gmail.com <span>↗</span></a><a href="/cv/Sergey_Senchenko_CV_ATS.pdf" download>{t.cvDownload} <span>↓</span></a><a href="https://github.com/Juze1234" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.youtube.com/@MetroWARrpOFF" target="_blank" rel="noreferrer">{t.projectChannel} <span>↗</span></a></div></section>
+      <section className="contact-section" id="contact"><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactHeadline}</h2><p>{t.contactText}</p><div className="contact-actions"><a href="mailto:SergeyJuze@gmail.com">SergeyJuze@gmail.com <span>↗</span></a><a href="/cv/Sergey_Senchenko_CV_ATS.pdf" download>{t.cvDownload} <span>↓</span></a><a href="https://www.linkedin.com/in/sergey-senchenko-951aa837b/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="https://github.com/Juze1234" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://www.youtube.com/@MetroWARrpOFF" target="_blank" rel="noreferrer">{t.projectChannel} <span>↗</span></a></div></section>
       <footer><span>{t.footerTitle}</span><span>{t.footerVersion}</span></footer>
     </main>
   );

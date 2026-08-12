@@ -66,7 +66,10 @@ nav a:hover, nav a:focus-visible { color: white; }
   border: 1px solid var(--line);
   background: rgba(17, 20, 22, .78);
 }
-.language-switch button {
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 42px;
   height: 30px;
   padding: 0 9px;
@@ -78,10 +81,10 @@ nav a:hover, nav a:focus-visible { color: white; }
   letter-spacing: .09em;
   transition: color .2s ease, background .2s ease;
 }
-.language-switch button:hover,
-.language-switch button:focus-visible { color: white; }
-.language-switch button.active { background: var(--accent); color: white; }
-.language-switch button:focus-visible { outline: 1px solid white; outline-offset: -2px; }
+.language-switch a:hover,
+.language-switch a:focus-visible { color: white; }
+.language-switch a.active { background: var(--accent); color: white; }
+.language-switch a:focus-visible { outline: 1px solid white; outline-offset: -2px; }
 
 .hero {
   min-height: calc(100vh - 86px);
@@ -311,7 +314,7 @@ footer { min-height: 90px; padding: 0 clamp(24px, 5vw, 76px); display: flex; ali
   .header-controls { gap: 8px; }
   nav a:not(.nav-contact) { display: none; }
   .nav-contact { padding: 9px 11px; }
-  .language-switch button { min-width: 38px; padding: 0 7px; }
+  .language-switch a { min-width: 38px; padding: 0 7px; }
   .hero { min-height: calc(100svh - 72px); padding-top: 48px; }
   .hero h1 { font-size: clamp(48px, 15vw, 72px); }
   .signal-strip { grid-template-columns: 1fr 1fr; gap: 18px; }
