@@ -112,13 +112,13 @@ def draw_sidebar_pair(c, label, value, y, value_color=WHITE):
 
 def draw_metric(c, x, y, width, number, label):
     c.setFillColor(PAPER_DARK)
-    c.roundRect(x, y, width, 44, 2, fill=1, stroke=0)
+    c.roundRect(x, y, width, 39, 2, fill=1, stroke=0)
     c.setFillColor(ACCENT)
-    c.rect(x, y, 3, 44, fill=1, stroke=0)
+    c.rect(x, y, 3, 39, fill=1, stroke=0)
     c.setFillColor(INK)
     c.setFont("SegoeBold", 16)
-    c.drawString(x + 11, y + 20, number)
-    draw_tracking(c, label.upper(), x + 11, y + 9, font="SegoeSemi", size=5.7, color=MUTED, char_space=0.7)
+    c.drawString(x + 11, y + 17, number)
+    draw_tracking(c, label.upper(), x + 11, y + 7, font="SegoeSemi", size=5.7, color=MUTED, char_space=0.7)
 
 
 def draw_bullet(c, text, x, y, width):
@@ -138,19 +138,19 @@ def draw_system_row(c, number, title, description, x, y, width):
     c.setFillColor(INK)
     c.drawString(x + 28, y - 8, title)
     end_y = draw_wrapped(c, description, x + 28, y - 20, width - 28, font="Segoe", size=7.5, leading=9.2, color=MUTED)
-    return end_y - 1
+    return end_y
 
 
 def draw_method_card(c, number, title, description, x, y, width):
     c.setFillColor(PAPER_DARK)
-    c.roundRect(x, y, width, 46, 2, fill=1, stroke=0)
+    c.roundRect(x, y, width, 40, 2, fill=1, stroke=0)
     c.setFillColor(ACCENT)
     c.setFont("SegoeBold", 7.2)
-    c.drawString(x + 11, y + 31, number)
+    c.drawString(x + 11, y + 27, number)
     c.setFillColor(INK)
     c.setFont("SegoeSemi", 8.6)
-    c.drawString(x + 11, y + 18, title)
-    draw_wrapped(c, description, x + 11, y + 7, width - 22, font="Segoe", size=6.4, leading=7.6, color=MUTED, max_lines=2)
+    c.drawString(x + 11, y + 15, title)
+    draw_wrapped(c, description, x + 11, y + 6, width - 22, font="Segoe", size=6.4, leading=7.6, color=MUTED, max_lines=2)
 
 
 def add_link(c, text, url, x, y, font="SegoeSemi", size=8.2, color=WHITE):
@@ -282,12 +282,12 @@ def build_pdf():
     y -= 8
     metric_gap = 7
     metric_w = (mw - metric_gap * 3) / 4
-    metric_y = y - 43
+    metric_y = y - 38
     for index, metric in enumerate(
         [("07", "Years dev"), ("900+", "Community"), ("80", "CCU test"), ("02", "Team")]
     ):
         draw_metric(c, mx + index * (metric_w + metric_gap), metric_y, metric_w, metric[0], metric[1])
-    y = metric_y - 20
+    y = metric_y - 17
 
     y = draw_main_heading(c, "Experience", y)
     c.setFont("SegoeBold", 13.2)
@@ -303,7 +303,8 @@ def build_pdf():
     y -= 18
     experience = [
         "Lead gameplay scripting, technical design, model integration, server economy, and QA; collaborate with a second developer focused mainly on world and map production.",
-        "Design reusable, data-driven gameplay systems spanning customization, identity, permissions, world state, and multiplayer feedback.",
+        "Design reusable, data-driven gameplay systems spanning customization, identity, permissions, survival pressure such as radiation and sanity, and multiplayer feedback.",
+        "Built radio voice comms over the engine's proximity VOIP: a server-side router recomputes who can hear whom each tick from position, tuned frequency and radio state.",
         "Shape onboarding and exploration across underground and surface environments, connecting player flow, economy, traversal, hazards, and atmosphere.",
         "Reproduce issues across client-server flows, harden edge cases, and iterate systems through multiplayer playtests and player feedback.",
     ]
@@ -341,11 +342,11 @@ def build_pdf():
     for row in system_rows:
         y = draw_system_row(c, row[0], row[1], row[2], mx, y, mw)
 
-    y -= 6
+    y -= 3
     y = draw_main_heading(c, "Delivery loop", y)
     method_gap = 7
     method_w = (mw - method_gap * 2) / 3
-    method_y = y - 45
+    method_y = y - 39
     methods = [
         ("01", "DESIGN", "Player goals, rules, flows"),
         ("02", "BUILD", "Server-authoritative systems"),
@@ -353,7 +354,7 @@ def build_pdf():
     ]
     for index, method in enumerate(methods):
         draw_method_card(c, method[0], method[1], method[2], mx + index * (method_w + method_gap), method_y, method_w)
-    y = method_y - 22
+    y = method_y - 19
 
     y = draw_main_heading(c, "Education", y)
     c.setFont("SegoeBold", 9.6)
